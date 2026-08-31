@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 设计稿 recording_file_list_item/recording_file_failed_full_asr.svg（转录失败）。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="44dp"
+    android:height="44dp"
+    android:viewportWidth="44"
+    android:viewportHeight="44">
+
+    <!-- 与设计素材一致：浅黄色只填充文件纸张本体，不扩展为圆角方形底板。 -->
+    <group
+        android:translateX="11"
+        android:translateY="3">
+        <path
+            android:fillColor="?attr/recorderColorStatusFailedContainer"
+            android:pathData="M0,3 C0,2.1716 0.2929,1.4645 0.8787,0.8787 C1.4645,0.2929 2.1716,0 3,0 L16,0 L25,9 L25,32 C25,32.8284 24.7071,33.5355 24.1213,34.1213 C23.5355,34.7071 22.8284,35 22,35 L3,35 C2.1716,35 1.4645,34.7071 0.8787,34.1213 C0.2929,33.5355 0,32.8284 0,32 Z" />
+    </group>
+    <group
+        android:translateX="11"
+        android:translateY="3">
+        <path
+            android:fillColor="?attr/recorderColorStatusFailedIcon"
+            android:fillType="evenOdd"
+            android:pathData="M3,-1.2 Q1.2603,-1.2 0.0302,0.0302 Q-1.2,1.2603 -1.2,3 L-1.2,32 Q-1.2,33.7397 0.0302,34.9698 Q1.2603,36.2 3,36.2 L22,36.2 Q23.7397,36.2 24.9698,34.9698 Q26.2,33.7397 26.2,32 L26.2,9 Q26.2009,8.7611 26.1086,8.5408 Q26.0181,8.3197 25.8485,8.1515 L16.8485,-0.8485 Q16.6803,-1.0181 16.4592,-1.1086 Q16.2389,-1.2009 16,-1.2 Z M1.2,3 Q1.2,2.2544 1.7272,1.7272 Q2.2544,1.2 3,1.2 L15.5029,1.2 L23.8,9.4971 L23.8,32 Q23.8,32.7456 23.2728,33.2728 Q22.7456,33.8 22,33.8 L3,33.8 Q2.2544,33.8 1.7272,33.2728 Q1.2,32.7456 1.2,32 Z" />
+    </group>
+    <group
+        android:translateX="27"
+        android:translateY="3">
+        <path
+            android:fillColor="?attr/recorderColorStatusFailedIcon"
+            android:fillType="evenOdd"
+            android:pathData="M1.2,6 L1.2,0 L-1.2,0 L-1.2,6 Q-1.2,7.7397 0.0302,8.9698 Q1.2603,10.2 3,10.2 L9,10.2 L9,7.8 L3,7.8 Q2.2544,7.8 1.7272,7.2728 Q1.2,6.7456 1.2,6 Z" />
+    </group>
+    <group
+        android:translateX="17"
+        android:translateY="24">
+        <path
+            android:fillColor="?attr/recorderColorStatusFailedIcon"
+            android:fillType="evenOdd"
+            android:pathData="M14,-1.2 L0,-1.2 Q-0.5031,-1.2145 -0.8485,-0.8485 Q-1.2145,-0.5031 -1.2,0 Q-1.2145,0.5031 -0.8485,0.8485 Q-0.5031,1.2145 0,1.2 L14,1.2 Q14.5031,1.2145 14.8485,0.8485 Q15.2145,0.5031 15.2,0 Q15.2145,-0.5031 14.8485,-0.8485 Q14.5031,-1.2145 14,-1.2 Z M10,4.8 L0,4.8 Q-0.5031,4.7855 -0.8485,5.1515 Q-1.2145,5.4969 -1.2,6 Q-1.2145,6.5031 -0.8485,6.8485 Q-0.5031,7.2145 0,7.2 L10,7.2 Q10.5031,7.2145 10.8485,6.8485 Q11.2145,6.5031 11.2,6 Q11.2145,5.4969 10.8485,5.1515 Q10.5031,4.7855 10,4.8 Z" />
+    </group>
+</vector>

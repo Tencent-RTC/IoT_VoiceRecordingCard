@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 设计稿 ui_design/assets/nav/record_screen_off.svg 的 VectorDrawable 转换 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <path
+        android:pathData="M12,3 A3,3 0 0 1 15,6 L15,11 A3,3 0 0 1 12,14 A3,3 0 0 1 9,11 L9,6 A3,3 0 0 1 12,3 Z"
+        android:fillColor="?attr/recorderColorIconInactive" />
+    <group
+        android:translateX="6"
+        android:translateY="11">
+        <path
+            android:pathData="M2.4645 3.5355Q1 2.0711 1 0Q1.0121 -0.4192 0.7071 -0.7071Q0.4192 -1.0121 0 -1Q-0.4192 -1.0121 -0.7071 -0.7071Q-1.0121 -0.4192 -1 0Q-1 2.8995 1.0503 4.9497Q3.1005 7 6 7Q8.8995 7 10.9497 4.9497Q13 2.8995 13 0Q13.0121 -0.4192 12.7071 -0.7071Q12.4192 -1.0121 12 -1Q11.5808 -1.0121 11.2929 -0.7071Q10.9879 -0.4192 11 0Q11 2.0711 9.5355 3.5355Q8.0711 5 6 5Q3.9289 5 2.4645 3.5355Z"
+            android:fillColor="?attr/recorderColorIconInactive"
+            android:fillType="evenOdd" />
+    </group>
+    <group
+        android:translateX="12"
+        android:translateY="17">
+        <path
+            android:pathData="M1 3L1 0Q1.0121 -0.4192 0.7071 -0.7071Q0.4192 -1.0121 0 -1Q-0.4192 -1.0121 -0.7071 -0.7071Q-1.0121 -0.4192 -1 0L-1 3Q-1.0121 3.4192 -0.7071 3.7071Q-0.4192 4.0121 0 4Q0.4192 4.0121 0.7071 3.7071Q1.0121 3.4192 1 3Z"
+            android:fillColor="?attr/recorderColorIconInactive"
+            android:fillType="evenOdd" />
+    </group>
+</vector>

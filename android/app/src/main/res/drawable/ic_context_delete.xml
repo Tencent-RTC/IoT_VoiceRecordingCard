@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 精确转换自 ui_design/assets/recording_file_list_context_menu/context_menu_delete_icon.svg -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:viewportWidth="20"
+    android:viewportHeight="20">
+
+    <group android:translateX="4.16667" android:translateY="5.83333">
+        <path
+            android:fillColor="?attr/recorderColorDangerMuted"
+            android:fillType="evenOdd"
+            android:pathData="M11.6667,-0.75L0,-0.75Q-0.3144,-0.759 -0.5303,-0.5303Q-0.759,-0.3144 -0.75,0Q-0.759,0.3144 -0.5303,0.5303Q-0.3144,0.759 0,0.75L11.6667,0.75Q11.9811,0.759 12.197,0.5303Q12.4257,0.3144 12.4167,0Q12.4257,-0.3144 12.197,-0.5303Q11.9811,-0.759 11.6667,-0.75Z" />
+    </group>
+
+    <group android:translateX="7.5" android:translateY="3.33333">
+        <path
+            android:fillColor="?attr/recorderColorDangerMuted"
+            android:fillType="evenOdd"
+            android:pathData="M-0.75,1.25L-0.75,2.5Q-0.759,2.8144 -0.5303,3.0303Q-0.3144,3.259 0,3.25Q0.3144,3.259 0.5303,3.0303Q0.759,2.8144 0.75,2.5L0.75,1.25Q0.75,1.0419 0.896,0.896Q1.0419,0.75 1.25,0.75L3.75,0.75Q3.9581,0.75 4.104,0.896Q4.25,1.0419 4.25,1.25L4.25,2.5Q4.241,2.8144 4.4697,3.0303Q4.6856,3.259 5,3.25Q5.3144,3.259 5.5303,3.0303Q5.759,2.8144 5.75,2.5L5.75,1.25Q5.75,0.4206 5.1647,-0.1647Q4.5794,-0.75 3.75,-0.75L1.25,-0.75Q0.4206,-0.75 -0.1647,-0.1647Q-0.75,0.4206 -0.75,1.25Z" />
+    </group>
+
+    <group android:translateX="5.83333" android:translateY="5.83333">
+        <path
+            android:fillColor="?attr/recorderColorDangerMuted"
+            android:fillType="evenOdd"
+            android:pathData="M1.4151,10.1176L0.7484,-0.0491L-0.7484,0.0491L-0.0817,10.2157Q-0.0175,11.1513 0.6689,11.7861Q1.3509,12.4167 2.2833,12.4167L6.05,12.4167Q6.9825,12.4167 7.6644,11.7861Q8.3509,11.1513 8.4149,10.218L9.0817,0.0491L7.5849,-0.0491L6.9184,10.1153Q6.8952,10.4544 6.646,10.6848Q6.3952,10.9167 6.05,10.9167L2.2833,10.9167Q1.9381,10.9167 1.6873,10.6848Q1.4382,10.4544 1.4151,10.1176Z" />
+    </group>
+
+    <group android:translateX="8.33333" android:translateY="8.75">
+        <path
+            android:fillColor="?attr/recorderColorDangerMuted"
+            android:fillType="evenOdd"
+            android:pathData="M0.75,5.8333L0.75,0Q0.759,-0.3144 0.5303,-0.5303Q0.3144,-0.759 0,-0.75Q-0.3144,-0.759 -0.5303,-0.5303Q-0.759,-0.3144 -0.75,0L-0.75,5.8333Q-0.759,6.1477 -0.5303,6.3637Q-0.3144,6.5924 0,6.5833Q0.3144,6.5924 0.5303,6.3637Q0.759,6.1477 0.75,5.8333ZM4.0833,5.8333L4.0833,0Q4.0924,-0.3144 3.8637,-0.5303Q3.6477,-0.759 3.3333,-0.75Q3.0189,-0.759 2.803,-0.5303Q2.5743,-0.3144 2.5833,0L2.5833,5.8333Q2.5743,6.1477 2.803,6.3637Q3.0189,6.5924 3.3333,6.5833Q3.6477,6.5924 3.8637,6.3637Q4.0924,6.1477 4.0833,5.8333Z" />
+    </group>
+</vector>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 由 ui_design/assets/share_panel/copy_to_clipboard_icon.svg 转换。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group
+        android:translateX="8"
+        android:translateY="7">
+        <path
+            android:fillColor="?attr/recorderColorIconPanel"
+            android:pathData="M1.8,-0.9L8.2,-0.9Q10.9,-0.9 10.9,1.8L10.9,9.2Q10.9,11.9 8.2,11.9L1.8,11.9Q-0.9,11.9 -0.9,9.2L-0.9,1.8Q-0.9,-0.9 1.8,-0.9zM1.8,0.9Q0.9,0.9 0.9,1.8L0.9,9.2Q0.9,10.1 1.8,10.1L8.2,10.1Q9.1,10.1 9.1,9.2L9.1,1.8Q9.1,0.9 8.2,0.9L1.8,0.9z" />
+    </group>
+    <group
+        android:translateX="6"
+        android:translateY="4">
+        <path
+            android:fillColor="?attr/recorderColorIconPanel"
+            android:pathData="M-0.9,1.8L-0.9,11Q-0.9109,11.3773 -0.6364,11.6364Q-0.3773,11.9109 0,11.9Q0.3773,11.9109 0.6364,11.6364Q0.9109,11.3773 0.9,11L0.9,1.8Q0.9,1.4228 1.1614,1.1614Q1.4228,0.9 1.8,0.9L9,0.9Q9.3773,0.9109 9.6364,0.6364Q9.9109,0.3773 9.9,0Q9.9109,-0.3773 9.6364,-0.6364Q9.3773,-0.9109 9,-0.9L1.8,-0.9Q0.6772,-0.9 -0.1114,-0.1114Q-0.9,0.6772 -0.9,1.8z" />
+    </group>
+</vector>

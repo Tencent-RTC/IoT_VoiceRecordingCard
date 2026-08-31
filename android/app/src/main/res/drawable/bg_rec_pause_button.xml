@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 实时录音页暂停占位按钮：白色圆形 + 按压波纹 -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/recorderColorRippleOnSurface">
+    <item android:id="@android:id/mask">
+        <shape android:shape="oval">
+            <solid android:color="?attr/recorderColorSurface" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="?attr/recorderColorSurface" />
+        </shape>
+    </item>
+</ripple>

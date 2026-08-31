@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 设计稿 ui_design/assets/main/user_icon_on_right_top.svg 的 VectorDrawable 转换 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <path
+        android:pathData="M8,9 a4,4 0 1 0 8,0 a4,4 0 1 0 -8,0 Z"
+        android:fillColor="?attr/recorderColorIconAccentSubtle" />
+    <group
+        android:translateX="5"
+        android:translateY="13">
+        <path
+            android:pathData="M0 7C0 5.067 0.6834 3.4171 2.0503 2.0503C3.4171 0.6834 5.067 0 7 0C8.933 0 10.5829 0.6834 11.9497 2.0503C13.3166 3.4171 14 5.067 14 7L0 7Z"
+            android:fillColor="?attr/recorderColorIconAccentSubtle" />
+    </group>
+</vector>

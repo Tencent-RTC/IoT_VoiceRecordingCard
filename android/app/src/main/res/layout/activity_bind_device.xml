@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 绑定设备页：设计稿 bind_device_scanning.png / bind_device_found_no_device.png / bind_device_found_some_device.png -->
+<!-- clipChildren=false：设备行外阴影（CardShadowDrawable）溢出 deviceListContainer
+     边界后不能被本层裁掉（尤其最后一行底部与两侧的模糊尾部） -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bindRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_page_gradient"
+    android:clipChildren="false"
+    android:orientation="vertical">
+
+    <!-- 顶栏：返回（白色圆角方块）+ 居中标题。顶栏不留左右 margin、
+         改为按钮自身 marginStart：按钮带 elevation，其左边缘若与顶栏边界重合，
+         阴影会向界外扩散并被父布局裁掉一条（真机表现为左边缘轻微模糊）。 -->
+    <FrameLayout
+        android:id="@+id/bindTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:clipChildren="false">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/bg_rec_back_button"
+            android:contentDescription="返回"
+            android:elevation="2dp"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_arrow_back_ios_new" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="绑定设备"
+            android:textColor="?attr/recorderColorTextPrimary"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <!-- 扫描状态副标题：始终预留两行高度，避免扫描结束的双行文案改变雷达区位置。 -->
+    <TextView
+        android:id="@+id/tvScanState"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.4"
+        android:text="扫描中，已找到 0 台可用设备"
+        android:textColor="?attr/recorderColorTextSecondary"
+        android:textSize="13sp" />
+
+    <!-- 雷达区：固定定位，不受扫描状态文案行数影响。 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <com.recorder.client.RadarScanView
+            android:id="@+id/radarView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <FrameLayout
+            android:id="@+id/radarCircle"
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_radar_circle"
+            android:clickable="true"
+            android:contentDescription="重新扫描"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:contentDescription="扫描"
+                android:src="@drawable/ic_bind_scanner" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <!-- 扫描到的设备列表（按发现顺序实时追加） -->
+    <LinearLayout
+        android:id="@+id/deviceListContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical" />
+</LinearLayout>

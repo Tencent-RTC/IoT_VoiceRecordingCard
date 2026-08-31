@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 详情页播放进度条：浅灰轨道 + 深绿已播部分。
+     轨道厚度由 SeekBar 的 minHeight/maxHeight 控制（此处不做 item 偏移：
+     轨道 bounds 高度不足时偏移会把子项高度压成负数，导致整条进度条不绘制） -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="?attr/recorderColorPlaybackTrack" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <solid android:color="?attr/recorderColorPrimary" />
+                <corners android:radius="2dp" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

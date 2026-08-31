@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 未绑定首页「+」圆形按钮：深绿圆（设计稿吸色 对应 Theme Token）+ 按压波纹 -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/recorderColorRippleOnDark">
+    <item android:id="@android:id/mask">
+        <shape android:shape="oval">
+            <solid android:color="?attr/recorderColorPrimaryButton" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="?attr/recorderColorPrimaryButton" />
+        </shape>
+    </item>
+</ripple>

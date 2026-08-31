@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 说话人头像内人形图标；由 ui_design/assets/recording_details/speaker_icon.svg 转换，
+     视口裁剪至人形内容包围盒（原 SVG 四周留白较大，直接缩放视觉偏小） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="15dp"
+    android:height="15.8dp"
+    android:viewportWidth="15"
+    android:viewportHeight="15.8">
+    <path
+        android:fillColor="?attr/recorderColorOnPrimary"
+        android:pathData="M3.2,4.3a4.3,4.3 0 1 1 8.6,0a4.3,4.3 0 1 1 -8.6,0z" />
+    <path
+        android:fillColor="?attr/recorderColorOnPrimary"
+        android:pathData="M0,15.8C0,10.8 3.4,8.3 7.5,8.3C11.6,8.3 15,10.8 15,15.8L0,15.8Z" />
+</vector>

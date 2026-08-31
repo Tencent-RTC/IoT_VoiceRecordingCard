@@ -1,0 +1,16 @@
+plugins {
+    id 'java-library'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+// 此模块会被根工程及客户端独立工程复用，隔离其构建产物以避免并发构建冲突。
+layout.buildDirectory.set(new File(projectDir, "build/${rootProject.name}"))
+
+dependencies {
+    api project(':business-protocol')
+    api project(':transport')
+}

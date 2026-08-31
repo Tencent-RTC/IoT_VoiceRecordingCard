@@ -1,0 +1,54 @@
+plugins {
+    id 'com.android.application'
+}
+
+// 此 App 可由根工程或客户端独立工程构建，按根工程名隔离构建产物。
+layout.buildDirectory.set(new File(projectDir, "build/${rootProject.name}"))
+
+android {
+    namespace 'com.recorder.client'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'com.recorder.client'
+        // recorder client app 最低支持 Android 8。
+        minSdk 26
+        targetSdk 36
+        versionCode 1
+        versionName '1.0'
+
+        ndk {
+            // 当前真机 demo 与 VoiceAI SDK 仅验证 arm64-v8a；
+            // 如需 x86_64 模拟器调试可追加 'x86_64'。
+            abiFilters 'arm64-v8a'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+
+dependencies {
+    // App 业务状态机（含 RequestManager）与底层 BLE 传输层均为客户端发布产物的一部分。
+    implementation project(':app-session')
+    implementation project(':transport')
+    // 腾讯云 VoiceAI SDK（云端实时流式 ASR，enableCustomCapture 外部喂 PCM 模式）
+    implementation files('libs/LiteAVSDK_VoiceAI_13.5.0.223.aar')
+    // Google 官方 JSON 库（云端 ASR 协议报文）；纯 Java，最低支持 Java 8 / Android 8.0
+    implementation 'com.google.code.gson:gson:2.14.0'
+    // 可持久化云端转写任务：离开页面、进程重启和设备重启后继续执行。
+    implementation 'androidx.work:work-runtime:2.11.2'
+    // FileProvider：以临时授权的 content:// URI 交给系统分享面板，不能暴露 file://。
+    implementation 'androidx.core:core:1.13.1'
+}
+
+// 把 gson 运行时 jar 复制到固定位置，供本地联调脚本加入 javac/java classpath。

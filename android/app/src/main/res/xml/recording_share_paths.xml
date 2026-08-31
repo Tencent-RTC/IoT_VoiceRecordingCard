@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- OfflineSyncController 的常规外部专属录音目录。 -->
+    <external-files-path
+        name="offline_recordings_external"
+        path="offline-recordings/" />
+    <!-- 外部存储不可用时，OfflineSyncController 使用的内部回退目录。 -->
+    <files-path
+        name="offline_recordings_internal"
+        path="offline-recordings/" />
+    <!-- 分享转写时在 cache 中创建的 UTF-8 文本文件。 -->
+    <cache-path
+        name="shared_transcripts"
+        path="shared-transcripts/" />
+</paths>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 单 Activity 壳：页面 Destination 容器 + 底部固定导航栏 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/pageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_page_gradient" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/recorderColorDivider" />
+
+        <com.recorder.client.BottomNavView
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!-- 跨首页与文件页的上下文菜单/重命名面板宿主，始终覆盖在页面和底部导航之上。
+         clipChildren=false：上下文菜单外阴影（ShadowedDrawable）需向菜单边界外绘制 -->
+    <FrameLayout
+        android:id="@+id/interactionOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:visibility="invisible" />
+</FrameLayout>

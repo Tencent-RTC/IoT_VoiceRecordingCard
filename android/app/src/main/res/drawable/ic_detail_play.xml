@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 详情页主播放按钮图标；由 ui_design/assets/recording_details/play_icon.svg 转换 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="?attr/recorderColorOnPrimary"
+        android:pathData="M7,4.5L20,12L7,19.5Z" />
+</vector>

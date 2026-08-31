@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 详情页保存到本地图标；由 ui_design/assets/recording_details/save_to_local.svg 转换（去除阴影滤镜，仅保留主路径） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:viewportWidth="20"
+    android:viewportHeight="20">
+    <group
+        android:translateX="6.66667"
+        android:translateY="2.5">
+        <path
+            android:fillColor="?attr/recorderColorPrimary"
+            android:pathData="M4.3333,7.5858L4.3333,0Q4.3454,-0.4192 4.0404,-0.7071Q3.7525,-1.0121 3.3333,-1Q2.9141,-1.0121 2.6262,-0.7071Q2.3213,-0.4192 2.3333,0L2.3333,7.5858L0.7071,5.9596Q0.4192,5.6546 0,5.6667Q-0.4192,5.6546 -0.7071,5.9596Q-1.0121,6.2475 -1,6.6667Q-1.0121,7.0859 -0.7071,7.3738L2.6262,10.7071Q2.9141,11.0121 3.3333,11Q3.7525,11.0121 4.0404,10.7071L7.3738,7.3738Q7.6787,7.0859 7.6667,6.6667Q7.6787,6.2475 7.3738,5.9596Q7.0859,5.6546 6.6667,5.6667Q6.2475,5.6546 5.9596,5.9596L4.3333,7.5858Z" />
+    </group>
+    <group
+        android:translateX="4.16667"
+        android:translateY="15.8333">
+        <path
+            android:fillColor="?attr/recorderColorPrimary"
+            android:pathData="M11.6667,-1L0,-1Q-0.4192,-1.0121 -0.7071,-0.7071Q-1.0121,-0.4192 -1,0Q-1.0121,0.4192 -0.7071,0.7071Q-0.4192,1.0121 0,1L11.6667,1Q12.0859,1.0121 12.3738,0.7071Q12.6787,0.4192 12.6667,0Q12.6787,-0.4192 12.3738,-0.7071Q12.0859,-1.0121 11.6667,-1Z" />
+    </group>
+</vector>

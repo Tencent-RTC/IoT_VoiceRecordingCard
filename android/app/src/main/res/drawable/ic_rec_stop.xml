@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 实时录音页结束录音按钮图标；由 ui_design/assets/realtime_recording/stopIcon.svg 转换 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:viewportWidth="20"
+    android:viewportHeight="20">
+    <path
+        android:fillColor="?attr/recorderColorOnDanger"
+        android:pathData="M5,7.5a2.5,2.5 0 0 1 2.5,-2.5h5a2.5,2.5 0 0 1 2.5,2.5v5a2.5,2.5 0 0 1 -2.5,2.5h-5a2.5,2.5 0 0 1 -2.5,-2.5z" />
+</vector>

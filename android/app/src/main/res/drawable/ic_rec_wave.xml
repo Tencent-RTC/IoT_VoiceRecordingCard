@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 实时录音页音波装饰图；由 ui_design/assets/realtime_recording/Wave.svg 等比转换。
+     原 viewport 287×44 中声波内容仅占 x∈[89.5,197.5]，fitCenter 缩放时大片空白会压缩可视尺寸；
+     此处用 group translateX(-89.5) 将内容平移至原点并把 viewport 裁剪为 108×44，使声波撑满 drawable。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="44dp"
+    android:viewportWidth="108"
+    android:viewportHeight="44">
+    <group android:translateX="-89.5">
+        <path
+            android:fillAlpha="0.5"
+            android:fillColor="?attr/recorderColorBrandLight"
+            android:pathData="M89.5,17a2,2 0 0 1 2,-2a2,2 0 0 1 2,2v10a2,2 0 0 1 -2,2a2,2 0 0 1 -2,-2v-10z" />
+        <path
+            android:fillAlpha="0.7"
+            android:fillColor="?attr/recorderColorBrandLight"
+            android:pathData="M97.5,11a2,2 0 0 1 2,-2a2,2 0 0 1 2,2v22a2,2 0 0 1 -2,2a2,2 0 0 1 -2,-2v-22z" />
+        <path
+            android:fillColor="?attr/recorderColorPrimary"
+            android:pathData="M105.5,5a2,2 0 0 1 2,-2a2,2 0 0 1 2,2v34a2,2 0 0 1 -2,2a2,2 0 0 1 -2,-2v-34z" />
+        <path
+            android:fillAlpha="0.6"
+            android:fillColor="?attr/recorderColorBrandLight"
+            android:pathData="M113.5,14a2,2 0 0 1 2,-2a2,2 0 0 1 2,2v16a2,2 0 0 1 -2,2a2,2 0 0 1 -2,-2v-16z" />
+        <path
+            android:fillColor="?attr/recorderColorPrimary"
+            android:pathData="M121.5,8a2,2 0 0 1 2,-2a2,2 0 0 1 2,2v28a2,2 0 0 1 -2,2a2,2 0 0 1 -2,-2v-28z" />
+        <path
+            android:fillAlpha="0.5"
+            android:fillColor="?attr/recorderColorBrandLight"
+            android:pathData="M129.5,16a2,2 0 0 1 2,-2a2,2 0 0 1 2,2v12a2,2 0 0 1 -2,2a2,2 0 0 1 -2,-2v-12z" />
+        <path
+            android:fillAlpha="0.7"
+            android:fillColor="?attr/recorderColorBrandLight"
+            android:pathData="M137.5,10a2,2 0 0 1 2,-2a2,2 0 0 1 2,2v24a2,2 0 0 1 -2,2a2,2 0 0 1 -2,-2v-24z" />
+        <path
+            android:fillColor="?attr/recorderColorPrimary"
+            android:pathData="M145.5,3a2,2 0 0 1 2,-2a2,2 0 0 1 2,2v38a2,2 0 0 1 -2,2a2,2 0 0 1 -2,-2v-38z" />
+        <path
+            android:fillAlpha="0.6"
+            android:fillColor="?attr/recorderColorBrandLight"
+            android:pathData="M153.5,13a2,2 0 0 1 2,-2a2,2 0 0 1 2,2v18a2,2 0 0 1 -2,2a2,2 0 0 1 -2,-2v-18z" />
+        <path
+            android:fillColor="?attr/recorderColorPrimary"
+            android:pathData="M161.5,7a2,2 0 0 1 2,-2a2,2 0 0 1 2,2v30a2,2 0 0 1 -2,2a2,2 0 0 1 -2,-2v-30z" />
+        <path
+            android:fillAlpha="0.5"
+            android:fillColor="?attr/recorderColorBrandLight"
+            android:pathData="M169.5,15a2,2 0 0 1 2,-2a2,2 0 0 1 2,2v14a2,2 0 0 1 -2,2a2,2 0 0 1 -2,-2v-14z" />
+        <path
+            android:fillAlpha="0.7"
+            android:fillColor="?attr/recorderColorBrandLight"
+            android:pathData="M177.5,9a2,2 0 0 1 2,-2a2,2 0 0 1 2,2v26a2,2 0 0 1 -2,2a2,2 0 0 1 -2,-2v-26z" />
+        <path
+            android:fillAlpha="0.6"
+            android:fillColor="?attr/recorderColorBrandLight"
+            android:pathData="M185.5,12a2,2 0 0 1 2,-2a2,2 0 0 1 2,2v20a2,2 0 0 1 -2,2a2,2 0 0 1 -2,-2v-20z" />
+        <path
+            android:fillAlpha="0.4"
+            android:fillColor="?attr/recorderColorBrandLight"
+            android:pathData="M193.5,18a2,2 0 0 1 2,-2a2,2 0 0 1 2,2v8a2,2 0 0 1 -2,2a2,2 0 0 1 -2,-2v-8z" />
+    </group>
+</vector>

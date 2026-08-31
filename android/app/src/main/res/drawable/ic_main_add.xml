@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 设计稿 ui_design/assets/main/add-device-recorder.svg 的 VectorDrawable 转换 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="46.6667"
+    android:viewportHeight="46.6667">
+    <group android:translateX="11"
+        android:translateY="11">
+        <path
+            android:fillColor="?attr/recorderColorOnPrimary"
+            android:pathData="M13,11L13,0Q13.0121,-0.4192 12.7071,-0.7071Q12.4192,-1.0121 12,-1Q11.5808,-1.0121 11.2929,-0.7071Q10.9879,-0.4192 11,0L11,11L0,11Q-0.4192,10.9879 -0.7071,11.2929Q-1.0121,11.5808 -1,12Q-1.0121,12.4192 -0.7071,12.7071Q-0.4192,13.0121 0,13L11,13L11,24Q10.9879,24.4192 11.2929,24.7071Q11.5808,25.0121 12,25Q12.4192,25.0121 12.7071,24.7071Q13.0121,24.4192 13,24L13,13L24,13Q24.4192,13.0121 24.7071,12.7071Q25.0121,12.4192 25,12Q25.0121,11.5808 24.7071,11.2929Q24.4192,10.9879 24,11L13,11Z" />
+    </group>
+</vector>

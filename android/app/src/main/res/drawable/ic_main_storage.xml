@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 设计稿 ui_design/assets/main/storIcon.svg 的 VectorDrawable 转换 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="16dp"
+    android:height="16dp"
+    android:viewportWidth="16"
+    android:viewportHeight="16">
+
+    <!-- 存储卡外壳 -->
+    <path
+        android:pathData="M4.5,2.6667 L11.5,2.6667 A2.5,2.5 0 0 1 14,5.1667 L14,10.8333 A2.5,2.5 0 0 1 11.5,13.3333 L4.5,13.3333 A2.5,2.5 0 0 1 2,10.8333 L2,5.1667 A2.5,2.5 0 0 1 4.5,2.6667 Z"
+        android:fillColor="?attr/recorderColorTransparent"
+        android:strokeColor="?attr/recorderColorIconInactive"
+        android:strokeWidth="1.8" />
+    <!-- 卡槽横条 -->
+    <path
+        android:pathData="M2,5.1 L14,5.1 L14,6.9 L2,6.9 Z"
+        android:fillColor="?attr/recorderColorIconInactive" />
+    <!-- 定位孔 -->
+    <path
+        android:pathData="M4.0667,4.3333 a0.6,0.6 0 1 0 1.2,0 a0.6,0.6 0 1 0 -1.2,0 Z"
+        android:fillColor="?attr/recorderColorIconInactive" />
+</vector>

@@ -1,0 +1,357 @@
+syntax = "proto3";
+
+package recorder.protocol.v1;
+
+// Java 代码生成选项：仅影响生成代码的组织方式，不改变 wire format。
+option java_multiple_files = true;
+option java_package = "com.recorder.business.proto";
+
+/////////////////////////////////////////////////////////////////////
+// 协议报文头
+
+enum PacketType {
+  PACKET_TYPE_UNSPECIFIED = 0;
+
+  // 请求 0x001 ~ 0x0FF
+  REC_RECORDING_START_REQUEST = 0x001;
+  REC_RECORDING_STOP_REQUEST = 0x002;
+  REC_FILE_LIST_REQUEST = 0x003;
+  REC_FILE_DOWNLOAD_START_REQUEST = 0x004;
+  REC_FILE_DOWNLOAD_PAUSE_REQUEST = 0x005;
+  REC_FILE_DOWNLOAD_COMPLETE_REQUEST = 0x006;
+  DEVICE_STATUS_REQUEST = 0x007;
+  REC_RECORDING_ATTACH_REQUEST = 0x008;
+
+  // 结果 0x101 ~ 0x1FF
+  REC_RECORDING_START_RESULT = 0x101;
+  REC_RECORDING_STOP_RESULT = 0x102;
+  REC_FILE_LIST_RESULT = 0x103;
+  REC_FILE_DOWNLOAD_START_RESULT = 0x104;
+  REC_FILE_DOWNLOAD_PAUSE_RESULT = 0x105;
+  REC_FILE_DOWNLOAD_COMPLETE_RESULT = 0x106;
+  DEVICE_STATUS_RESULT = 0x107;
+  REC_RECORDING_ATTACH_RESULT = 0x108;
+
+  // 数据 0x201 ~ 0x2FF
+  REC_AUDIO_FRAME = 0x201;
+  REC_FILE_CHUNK = 0x202;
+
+  // 事件 0x301 ~ 0x3FF
+  REC_RECORDING_STARTED_EVENT = 0x301;
+  REC_RECORDING_STOPPED_EVENT = 0x302;
+}
+
+message RecorderPacket {
+  PacketType type = 1;
+
+  oneof body {
+    // 请求 10 ~ 99
+    RecordingStartRequest recording_start_request = 10;
+    RecordingStopRequest recording_stop_request = 11;
+    FileListRequest file_list_request = 12;
+    FileDownloadStartRequest file_download_start_request = 13;
+    FileDownloadPauseRequest file_download_pause_request = 14;
+    FileDownloadCompleteRequest file_download_complete_request = 15;
+    DeviceStatusRequest device_status_request = 16;
+    RecordingAttachRequest recording_attach_request = 17;
+
+    // 响应 100 ~ 199
+    RecordingStartResult recording_start_result = 100;
+    RecordingStopResult recording_stop_result = 101;
+    FileListResult file_list_result = 102;
+    FileDownloadStartResult file_download_start_result = 103;
+    FileDownloadPauseResult file_download_pause_result = 104;
+    FileDownloadCompleteResult file_download_complete_result = 105;
+    DeviceStatusResult device_status_result = 106;
+    RecordingAttachResult recording_attach_result = 107;
+
+    // 数据 200 ~ 299
+    AudioFrame audio_frame = 200;
+    FileChunk file_chunk = 201;
+
+    // 事件 300 ~ 399
+    RecordingStartedEvent recording_started_event = 300;
+    RecordingStoppedEvent recording_stopped_event = 301;
+  }
+}
+
+/////////////////////////////////////////////////////////////////////
+// 辅助结构/枚举体
+
+// 请求头
+message RequestHeader {
+  // 请求唯一标识，用于匹配请求和响应。
+  uint32 id = 1;
+}
+
+// 响应头
+message ResponseHeader {
+  // 对应请求的 RequestHeader.id。
+  uint32 id = 1;
+  // 状态码，类似 HTTP 协议的设计
+  StatusCode status_code = 2;
+  // 错误信息，成功响应的 response 报文不用
+  optional string err_msg = 3;
+}
+
+enum StatusCode {
+  STATUS_CODE_UNSPECIFIED = 0;
+  OK = 1;
+  UNKNOWN_METHOD = 2;
+  INVALID_PARAMS = 3;
+  INVALID_STATE = 4;
+  RECORDING_NOT_FOUND = 5;
+  FILE_NOT_FOUND = 6;
+  INVALID_OFFSET = 7;
+  TRANSFER_NOT_FOUND = 8;
+  INTERNAL_ERROR = 9;
+}
+
+enum AudioCodec {
+  AUDIO_CODEC_UNSPECIFIED = 0;
+  AUDIO_CODEC_OPUS = 1;
+}
+
+enum DeviceRecordingState {
+  DEVICE_RECORDING_STATE_UNSPECIFIED = 0;
+  DEVICE_RECORDING_STATE_IDLE = 1;
+  DEVICE_RECORDING_STATE_STARTING = 2;
+  DEVICE_RECORDING_STATE_RECORDING = 3;
+  DEVICE_RECORDING_STATE_STOPPING = 4;
+}
+
+/////////////////////////////////////////////////////////////////////
+// 报文体
+
+message RecordingStartRequest {
+  RequestHeader header = 1;
+  // Unix 时间戳（秒），用于表示开始录制的时间
+  uint32 timestamp = 2;  
+}
+
+message RecordingStartResult {
+  ResponseHeader header = 1;
+  // 设备侧负责生成录音事务 ID
+  uint32 recording_id = 2;
+
+  // 设备最终采用的音频参数。
+  uint32 frame_duration_ms = 3;
+  AudioCodec codec = 4;
+  uint32 sample_rate_hz = 5;
+  uint32 channel_count = 6;
+
+  // 对于 Opus 编码的音频帧，该字段承载
+  // 设备编码器的 csd-0（OpusHead），供 App 初始化解码器。
+  // TODO：该字段未来迭代时需要重命名为“codec_specific_data”
+  optional bytes codec_config = 7;
+
+  // 当前连接本次实时推流区间的事务级首帧序号。
+  // 设备在提交本 Result 前快照将要分配的下一个 sequence；
+  // 重复的幂等 start/attach 必须回显同一推流区间的原值。
+  uint32 stream_start_sequence = 8;
+}
+
+message RecordingStopRequest {
+  RequestHeader header = 1;
+  uint32 recording_id = 2;
+}
+
+message RecordingStopResult {
+  ResponseHeader header = 1;
+  uint32 recording_id = 2;
+
+  // 本录音事务实际产生的有效编码音频帧总数。
+  // 与 App 连接、attach 时机和实时推流结果无关。
+  uint32 frame_count = 3;
+
+  // frame_count=0 时必须不存在；frame_count>0 时必须存在且等于 frame_count-1，
+  // 即本事务最后一个有效编码音频帧的事务级 sequence。
+  optional uint32 last_sequence = 4;
+}
+
+message FileListRequest {
+  RequestHeader header = 1;
+}
+
+message FileListResult {
+  ResponseHeader header = 1;
+  // 按 created_time 从新到旧排列的当前待同步批次。该列表必须保证完整
+  // RecorderPacket 不超过下层单条业务报文上限；设备可只返回可容纳的最新前缀。
+  repeated FileMetadata files = 2;
+}
+
+message FileMetadata {
+  // 文件名，作为唯一标识符区分不同的录音记录
+  string file_name = 1;
+  // Unix 时间戳（秒），用于表示开始录制的时间
+  uint32 created_time = 2;  
+  // 音频总时长，单位为毫秒
+  uint64 duration_ms = 3;
+}
+
+message FileDownloadStartRequest {
+  RequestHeader header = 1;
+  string file_name = 2;
+  // 从文件的该字节偏移位置开始下载。
+  uint64 offset = 3;
+  // 请求方允许的单个文件块最大载荷大小。
+  uint32 max_chunk_payload_bytes = 4;
+}
+
+message FileDownloadStartResult {
+  ResponseHeader header = 1;
+
+  // 标识一次文件传输事务。
+  uint32 transfer_id = 2;
+  // 设备实际采用的单个文件块载荷大小。
+  uint32 chunk_payload_bytes = 3;
+
+  // 完整原始离线文件字节流的总大小，单位字节。
+  uint64 file_size = 4;
+  // 文件编解码信息
+  AudioCodec codec = 5;
+  uint32 sample_rate_hz = 6;
+  uint32 channel_count = 7;
+
+  // 对于 Opus 编码的音频帧，该字段承载
+  // 设备编码器的 csd-0（OpusHead），供 App 初始化解码器。
+  optional bytes codec_config = 8;
+  
+  // 完整原始离线文件字节流的 CRC-32/ISO-HDLC 校验值（与 java.util.zip.CRC32
+  // 一致），以 uint32 的无符号位模式传递；App 在转换为 Ogg 前校验。
+  uint32 crc = 9;
+}
+
+// 文件下载暂停请求。
+message FileDownloadPauseRequest {
+  RequestHeader header = 1;
+  uint32 transfer_id = 2;
+}
+
+message FileDownloadPauseResult {
+  ResponseHeader header = 1;
+  // 与请求相同的 transfer_id。续传 offset 由 App 自己已连续持久化的文件长度决定。
+  uint32 transfer_id = 2;
+}
+
+// App 自动确认文件已下载至手机且通过校验，请求设备删除对应源文件。
+// 此方法不是供用户主动选择设备文件的删除接口。
+message FileDownloadCompleteRequest {
+  RequestHeader header = 1;
+  string file_name = 2;
+}
+
+message FileDownloadCompleteResult {
+  ResponseHeader header = 1;
+  string file_name = 2;
+}
+
+
+// App 主动拉取设备状态请求
+message DeviceStatusRequest {
+  RequestHeader header = 1;
+  // Unix 时间戳（秒），代表当时手机端真实的系统时间，用于和设备进行对时
+  uint32 timestamp = 2;
+}
+
+message DeviceStatusResult {
+  ResponseHeader header = 1;
+
+  // 当前设备的剩余电量（百分制，例如还剩68%的电量，就填68）
+  uint32 remaining_battery_percent = 2;
+  
+  // 当前设备存储空间的总容量与已用容量
+  // 单位 B
+  uint64 total_storage_bytes = 3;
+  uint64 used_storage_bytes = 4;
+
+  // 设备侧录音事务状态。
+  DeviceRecordingState recording_state = 5;
+
+  // 设备侧正在进行的录音事务。
+  // STARTING、RECORDING、STOPPING 时必须存在且非零；IDLE 时必须不存在。
+  optional uint32 current_recording_id = 6;
+}
+
+// App 主动请求接入设备录音
+message RecordingAttachRequest {
+  RequestHeader header = 1;
+  // 要请求 attach 的目标录音事务 id
+  uint32 target_recording_id = 2;
+}
+
+message RecordingAttachResultBody {
+  // 回显实际接入的录音事务 id，必须与 Request 一致。
+  uint32 recording_id = 1;
+
+  // 设备侧开始本次录音事务的 Unix 时间戳（秒）；0 表示创建事务时设备时间不可信。
+  uint32 started_at_timestamp = 2;
+
+  // 从设备开始本次录音事务到生成本 Response 时的时长，单位毫秒。
+  uint64 current_duration_ms = 3;
+
+  // 音频参数，含义与 RecordingStartResult 一致。
+  uint32 frame_duration_ms = 4;
+  AudioCodec codec = 5;
+  uint32 sample_rate_hz = 6;
+  uint32 channel_count = 7;
+  // TODO：该字段未来迭代时需要和 RecordingStartResult 
+  // 当中的同名字段一起重命名为“codec_specific_data”
+  optional bytes codec_config = 8;
+
+  // 当前连接本次实时推流区间的事务级首帧序号。
+  // 设备在提交本 Result 前快照将要分配的下一个 sequence；
+  // 重复的幂等 start/attach 必须回显同一推流区间的原值。
+  uint32 stream_start_sequence = 9;
+}
+
+message RecordingAttachResult {
+  ResponseHeader header = 1;
+
+  // false 表示目标事务在 Request 到达前已不再可接入，是正常竞态结果。
+  bool attached_ok = 2;
+
+  // attached_ok=true 时必须存在；attached_ok=false 时必须不存在。
+  optional RecordingAttachResultBody result_body = 3;
+}
+
+// 音频帧。
+message AudioFrame {
+  uint32 recording_id = 1;
+  // 录音事务级真实帧序号：本事务首个有效编码帧为 0，逐帧递增。
+  // 不因 start/attach、推流启停或 BLE 断连重连而重置。
+  uint32 sequence = 2;
+  // bytes 字段在各语言生成的对象中均可获取长度，
+  // 无须额外定义 payload_size。
+  bytes audio_payload = 3;
+}
+
+// 文件块帧。
+message FileChunk {
+  uint32 transfer_id = 1;
+  // 当前 file_payload 在原文件中的起始字节偏移。
+  uint64 offset = 2;
+  // 当且仅当 offset + file_payload 的字节数等于 file_size 时为 true。
+  // 非末块必须为 false；末块之后不得再发送同一 transfer_id 的 FileChunk。
+  bool is_end = 3;
+  // chunk 分片载荷，不能为空。
+  bytes file_payload = 4;
+}
+
+message RecordingStartedEvent {
+  // 设备侧已开始且可 attach 的录音事务 id，必须非零。
+  uint32 recording_id = 1;
+  // 设备侧开始本次录音事务的 Unix 时间戳（秒）；0 表示创建事务时设备时间不可信。
+  uint32 started_at_timestamp = 2;
+}
+
+message RecordingStoppedEvent {
+  // 已结束的录音事务 id，必须非零。
+  uint32 recording_id = 1;
+  // 本录音事务实际产生的有效编码音频帧总数，
+  // 与 App 连接、attach 时机和实时推流结果无关。
+  uint32 frame_count = 2;
+  // frame_count=0 时必须不存在；frame_count>0 时必须存在且等于 frame_count-1，
+  // 即本事务最后一个有效编码音频帧的事务级 sequence。
+  optional uint32 last_sequence = 3;
+}

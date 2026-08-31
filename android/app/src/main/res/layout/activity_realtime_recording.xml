@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 实时录音页：设计稿 ui_design/screens/realtime_recording.png -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_page_gradient_recording"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingTop="8dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="16dp">
+
+    <!-- 顶栏：返回按钮（白色圆角方块）+ 居中标题 -->
+    <!-- clipChildren=false：带 elevation 的按钮阴影投射到视图边界之外，避免被父布局裁成硬边 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:clipChildren="false">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start|center_vertical"
+            android:background="@drawable/bg_rec_back_button"
+            android:contentDescription="返回"
+            android:elevation="2dp"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_arrow_back_ios_new" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="实时录音"
+            android:textColor="?attr/recorderColorTextStrong"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <!-- 计时卡片：红点 + HH:MM:SS 计时 + 音波装饰。
+         卡片背景（含强调外阴影 Y8/24/8%）由 Activity 设置 CardShadowDrawable。 -->
+    <LinearLayout
+        android:id="@+id/timerCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="18dp"
+        android:paddingBottom="14dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@drawable/bg_rec_dot_red" />
+
+            <TextView
+                android:id="@+id/tvTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:letterSpacing="0.03"
+                android:text="00:00:00"
+                android:textColor="?attr/recorderColorTextStrong"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <com.recorder.client.RecordingWaveformView
+            android:id="@+id/recordingWaveform"
+            android:layout_width="112dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="12dp" />
+    </LinearLayout>
+
+    <!-- 转写卡片：VoiceAI 说话人分段 + 状态标签。
+         卡片背景（含标准外阴影 Y6/18/6%）由 Activity 设置 CardShadowDrawable。 -->
+    <LinearLayout
+        android:id="@+id/asrCard"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="20dp">
+
+        <!-- NoChildAutoScrollView 保证实时追加分段时视图稳定钉底。 -->
+        <com.recorder.client.NoChildAutoScrollView
+            android:id="@+id/asrScroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fadeScrollbars="false"
+            android:scrollbars="vertical">
+
+            <!-- paddingEnd 与卡片左侧 20dp 合计对称：正文相对卡片居中，滚动条贴右缘不与文本重合 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingEnd="12dp">
+
+                <TextView
+                    android:id="@+id/tvRealtimeAsrEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|top"
+                    android:lineSpacingMultiplier="1.4"
+                    android:text="等待语音识别结果…"
+                    android:textColor="?attr/recorderColorTextStrong"
+                    android:textSize="14sp" />
+
+                <!-- VoiceAI 13.5 返回结果后展示近似时间、说话人和分段文本。 -->
+                <LinearLayout
+                    android:id="@+id/layoutRealtimeAsrSegments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_rec_status_chip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="5dp">
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:background="@drawable/bg_rec_dot_chip" />
+
+                    <TextView
+                        android:id="@+id/tvRecStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="正在启动录音…"
+                        android:textColor="?attr/recorderColorTextStatus"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.recorder.client.NoChildAutoScrollView>
+    </LinearLayout>
+
+    <!-- 底部控制栏：暂停（占位，暂不实现功能）+ 结束录音 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clipChildren="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnPause"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@drawable/bg_rec_pause_button"
+            android:contentDescription="暂停（当前版本暂不支持）"
+            android:elevation="2dp"
+            android:padding="15dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_rec_pause" />
+
+        <LinearLayout
+            android:id="@+id/btnStopRecording"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_rec_stop_button"
+            android:clickable="true"
+            android:elevation="2dp"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- ic_rec_stop 的 viewport 为 20×20、白色方块占中间 10×10：24dp 视图中白块实显 12dp，与设计稿比例一致 -->
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:importantForAccessibility="no"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_rec_stop" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="结束录音"
+                android:textColor="?attr/recorderColorOnDanger"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

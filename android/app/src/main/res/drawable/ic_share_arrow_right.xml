@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 由 ui_design/assets/share_panel/right_arrow_icon.svg 转换。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group
+        android:translateX="9"
+        android:translateY="5">
+        <path
+            android:fillColor="?attr/recorderColorIconPanel"
+            android:pathData="M7.7071,6.2929L0.7071,-0.7071Q0.4192,-1.0121 0,-1Q-0.4192,-1.0121 -0.7071,-0.7071Q-1.0121,-0.4192 -1,0Q-1.0121,0.4192 -0.7071,0.7071L5.5858,7L-0.7071,13.2929Q-1.0121,13.5808 -1,14Q-1.0121,14.4192 -0.7071,14.7071Q-0.4192,15.0121 0,15Q0.4192,15.0121 0.7071,14.7071L7.7071,7.7071Q8.0121,7.4192 8,7Q8.0121,6.5808 7.7071,6.2929z" />
+    </group>
+</vector>

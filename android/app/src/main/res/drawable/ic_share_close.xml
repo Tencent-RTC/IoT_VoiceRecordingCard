@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 由 ui_design/assets/share_panel/close_panel_icon.svg 转换。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group
+        android:translateX="6"
+        android:translateY="6">
+        <path
+            android:fillColor="?attr/recorderColorIconPanel"
+            android:pathData="M7.4142,6L12.7071,0.7071Q13.0121,0.4192 13,0Q13.0121,-0.4192 12.7071,-0.7071Q12.4192,-1.0121 12,-1Q11.5808,-1.0121 11.2929,-0.7071L6,4.5858L0.7071,-0.7071Q0.4192,-1.0121 0,-1Q-0.4192,-1.0121 -0.7071,-0.7071Q-1.0121,-0.4192 -1,0Q-1.0121,0.4192 -0.7071,0.7071L4.5858,6L-0.7071,11.2929Q-1.0121,11.5808 -1,12Q-1.0121,12.4192 -0.7071,12.7071Q-0.4192,13.0121 0,13Q0.4192,13.0121 0.7071,12.7071L6,7.4142L11.2929,12.7071Q11.5808,13.0121 12,13Q12.4192,13.0121 12.7071,12.7071Q13.0121,12.4192 13,12Q13.0121,11.5808 12.7071,11.2929L7.4142,6z" />
+    </group>
+</vector>

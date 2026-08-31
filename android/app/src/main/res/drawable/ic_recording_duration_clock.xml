@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 设计稿 recording_file_list_item/clock.svg 的 VectorDrawable 转换。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="12dp"
+    android:height="12dp"
+    android:viewportWidth="12"
+    android:viewportHeight="12">
+    <path
+        android:fillColor="?attr/recorderColorTransparent"
+        android:pathData="M6,1 A5,5 0,1 0,6,11 A5,5 0,1 0,6,1"
+        android:strokeColor="?attr/recorderColorTextMetadataWarm"
+        android:strokeWidth="1.2" />
+    <path
+        android:fillColor="?attr/recorderColorTextMetadataWarm"
+        android:pathData="M5.4,3 L6.6,3 L6.6,5.7 L8.48,7.11 Q8.77,7.34 8.54,7.63 Q8.31,7.92 8.02,7.69 L5.64,5.91 Q5.4,5.73 5.4,5.43 Z" />
+</vector>

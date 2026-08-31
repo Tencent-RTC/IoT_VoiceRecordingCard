@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <!-- Android 11 及以下的旧权限模型 -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+    <!-- Android 11 及以下：BLE 扫描依赖定位权限 -->
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION"
+        android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:maxSdkVersion="30" />
+
+    <!-- Android 12+ 的新权限模型；声明不用于推断物理位置 -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="s" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <!-- 云端全量 ASR：上传本地 .ogg 并轮询识别结果 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@android:drawable/ic_menu_upload"
+        android:label="我的录音"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Recorder">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 实时 ASR 字幕显示与停止录音控制界面 -->
+        <activity
+            android:name=".RealtimeRecordingActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!-- 已同步离线录音的查看、云端全量转写与本地播放界面 -->
+        <activity
+            android:name=".RecordingDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <!-- 扫描并绑定录音笔设备界面 -->
+        <activity
+            android:name=".BindDeviceActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <!-- 已绑定设备的信息查看与解绑界面 -->
+        <activity
+            android:name=".DeviceInfoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- 向系统分享面板临时授予录音和导出转写文件的只读 content URI。 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.recording-share-fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/recording_share_paths" />
+        </provider>
+
+        <!-- WorkManager 的长时转写 Worker 以前台 dataSync 服务运行。 -->
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:foregroundServiceType="dataSync"
+            tools:node="merge" />
+    </application>
+
+</manifest>

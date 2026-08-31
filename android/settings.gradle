@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'RecorderClientOpenSource'
+
+include ':app'
+include ':business-protocol'
+include ':transport'
+include ':app-session'
+
+project(':business-protocol').projectDir = file('business-protocol')

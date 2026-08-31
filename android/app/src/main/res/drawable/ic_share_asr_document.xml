@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 由 ui_design/assets/share_panel/asr_document_icon.svg 转换。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group
+        android:translateX="6"
+        android:translateY="3.5">
+        <path
+            android:fillColor="?attr/recorderColorPrimaryIcon"
+            android:fillType="evenOdd"
+            android:pathData="M7.8444,-0.8315Q7.6792,-0.9007 7.5,-0.9L0,-0.9Q-0.3773,-0.9109 -0.6364,-0.6364Q-0.9109,-0.3773 -0.9,0L-0.9,17Q-0.9109,17.3773 -0.6364,17.6364Q-0.3773,17.9109 0,17.9L12,17.9Q12.3773,17.9109 12.6364,17.6364Q12.9109,17.3773 12.9,17L12.9,4.5Q12.9007,4.3208 12.8315,4.1556Q12.7636,3.9898 12.6364,3.8636L8.1364,-0.6364Q8.0102,-0.7636 7.8444,-0.8315zM7.1272,0.9L0.9,0.9L0.9,16.1L11.1,16.1L11.1,4.8728L7.1272,0.9z" />
+    </group>
+    <group
+        android:translateX="9"
+        android:translateY="3.5">
+        <path
+            android:fillColor="?attr/recorderColorPrimaryIcon"
+            android:fillType="evenOdd"
+            android:pathData="M4.9,0L4.9,4.1L9,4.1Q9.3773,4.0891 9.6364,4.3636Q9.9109,4.6227 9.9,5Q9.9109,5.3773 9.6364,5.6364Q9.3773,5.9109 9,5.9L3.1,5.9L3.1,0Q3.0891,-0.3773 3.3636,-0.6364Q3.6227,-0.9109 4,-0.9Q4.3773,-0.9109 4.6364,-0.6364Q4.9109,-0.3773 4.9,0zM6,7.6L0,7.6Q-0.3773,7.5891 -0.6364,7.8636Q-0.9109,8.1227 -0.9,8.5Q-0.9109,8.8773 -0.6364,9.1364Q-0.3773,9.4109 0,9.4L6,9.4Q6.3773,9.4109 6.6364,9.1364Q6.9109,8.8773 6.9,8.5Q6.9109,8.1227 6.6364,7.8636Q6.3773,7.5891 6,7.6zM6,11.1L0,11.1Q-0.3773,11.0891 -0.6364,11.3636Q-0.9109,11.6227 -0.9,12Q-0.9109,12.3773 -0.6364,12.6364Q-0.3773,12.9109 0,12.9L6,12.9Q6.3773,12.9109 6.6364,12.6364Q6.9109,12.3773 6.9,12Q6.9109,11.6227 6.6364,11.3636Q6.3773,11.0891 6,11.1z" />
+    </group>
+</vector>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 一个说话人分段块：圆形头像（左）+ 发言人·起始时间与正文（右列）。
+     头像与「发言人 X」顶部对齐；正文与头部行共享同一左缩进（对齐发言人名）。 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="24dp">
+
+    <!-- 圆形头像底色由代码按发言人着色；36dp 对齐设计稿头像直径 -->
+    <ImageView
+        android:id="@+id/ivSpeakerAvatar"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:importantForAccessibility="no"
+        android:padding="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_detail_speaker" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:orientation="vertical">
+
+        <!-- 设计稿无按压波纹反馈：背景透明，仅保留点击行为。
+             头部行不加顶部偏移：TextView 字形上方的内建 font padding（≈3dp）
+             使「发言人 X」字形自然落在圆圈顶部下方约 2-3dp，与设计稿齐平。 -->
+        <LinearLayout
+            android:id="@+id/rowSpeaker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/recorderColorTransparent"
+            android:clickable="true"
+            android:contentDescription="从该分段开始播放"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvSpeakerLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- 起始时间保持淡灰色、不加粗（与设计稿区分的弱信息层级） -->
+            <TextView
+                android:id="@+id/tvSegmentTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:textColor="?attr/recorderColorTextPending"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSegmentText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lineSpacingMultiplier="1.33"
+            android:textColor="?attr/recorderColorTextStrong"
+            android:textIsSelectable="true"
+            android:textSize="15sp" />
+    </LinearLayout>
+</LinearLayout>

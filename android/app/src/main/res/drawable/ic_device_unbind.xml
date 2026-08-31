@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 设计稿 ui_design/assets/device_info/unbound_device.svg 的 VectorDrawable 转换 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:viewportWidth="20"
+    android:viewportHeight="20">
+    <group android:translateX="2.5"
+        android:translateY="2.5">
+        <path
+            android:fillColor="?attr/recorderColorOnDanger"
+            android:pathData="M1.6667,15.9L5,15.9Q5.3773,15.9109 5.6364,15.6364Q5.9109,15.3773 5.9,15Q5.9109,14.6227 5.6364,14.3636Q5.3773,14.0891 5,14.1L1.6667,14.1Q1.3491,14.1 1.1245,13.8755Q0.9,13.6509 0.9,13.3333L0.9,1.6667Q0.9,1.3491 1.1245,1.1245Q1.3491,0.9 1.6667,0.9L5,0.9Q5.3773,0.9109 5.6364,0.6364Q5.9109,0.3773 5.9,0Q5.9109,-0.3773 5.6364,-0.6364Q5.3773,-0.9109 5,-0.9L1.6667,-0.9Q0.6035,-0.9 -0.1483,-0.1483Q-0.9,0.6035 -0.9,1.6667L-0.9,13.3333Q-0.9,14.3965 -0.1483,15.1483Q0.6035,15.9 1.6667,15.9Z" />
+    </group>
+    <group android:translateX="13.3333"
+        android:translateY="5.83333">
+        <path
+            android:fillColor="?attr/recorderColorOnDanger"
+            android:pathData="M2.8939,4.1667L-0.6364,7.6969Q-0.9109,7.956 -0.9,8.3333Q-0.9109,8.7106 -0.6364,8.9697Q-0.3773,9.2442 0,9.2333Q0.3773,9.2442 0.6364,8.9697L4.8031,4.8031Q5.0775,4.544 5.0667,4.1667Q5.0775,3.7894 4.8031,3.5303L0.6364,-0.6364Q0.3773,-0.9109 0,-0.9Q-0.3773,-0.9109 -0.6364,-0.6364Q-0.9109,-0.3773 -0.9,0Q-0.9109,0.3773 -0.6364,0.6364L2.8939,4.1667Z" />
+    </group>
+    <group android:translateX="7.5"
+        android:translateY="10">
+        <path
+            android:fillColor="?attr/recorderColorOnDanger"
+            android:pathData="M0,0.9L10,0.9Q10.3773,0.9109 10.6364,0.6364Q10.9109,0.3773 10.9,0Q10.9109,-0.3773 10.6364,-0.6364Q10.3773,-0.9109 10,-0.9L0,-0.9Q-0.3773,-0.9109 -0.6364,-0.6364Q-0.9109,-0.3773 -0.9,0Q-0.9109,0.3773 -0.6364,0.6364Q-0.3773,0.9109 0,0.9Z" />
+    </group>
+</vector>

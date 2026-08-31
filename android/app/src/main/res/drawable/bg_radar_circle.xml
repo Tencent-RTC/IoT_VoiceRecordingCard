@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 绑定页雷达中心圆：对角线绿色渐变（设计稿吸色 对应 Theme Token → 对应 Theme Token） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <gradient
+        android:angle="45"
+        android:endColor="?attr/recorderColorRadarRing"
+        android:startColor="?attr/recorderColorRadarCenter"
+        android:type="linear" />
+</shape>

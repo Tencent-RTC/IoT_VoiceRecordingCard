@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 设计稿 ui_design/assets/nav/user_screen_off.svg 的 VectorDrawable 转换 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <path
+        android:pathData="M8,8 a4,4 0 1 0 8,0 a4,4 0 1 0 -8,0 Z"
+        android:fillColor="?attr/recorderColorTransparent"
+        android:strokeColor="?attr/recorderColorIconInactive"
+        android:strokeWidth="2" />
+    <group
+        android:translateX="5"
+        android:translateY="13">
+        <path
+            android:pathData="M1.3431 1.3431Q-1 3.6863 -1 7Q-1.0121 7.4192 -0.7071 7.7071Q-0.4192 8.0121 0 8Q0.4192 8.0121 0.7071 7.7071Q1.0121 7.4192 1 7Q1 4.5147 2.7574 2.7574Q4.5147 1 7 1Q9.4853 1 11.2426 2.7574Q13 4.5147 13 7Q12.9879 7.4192 13.2929 7.7071Q13.5808 8.0121 14 8Q14.4192 8.0121 14.7071 7.7071Q15.0121 7.4192 15 7Q15 3.6863 12.6569 1.3431Q10.3137 -1 7 -1Q3.6863 -1 1.3431 1.3431Z"
+            android:fillColor="?attr/recorderColorIconInactive"
+            android:fillType="evenOdd" />
+    </group>
+</vector>

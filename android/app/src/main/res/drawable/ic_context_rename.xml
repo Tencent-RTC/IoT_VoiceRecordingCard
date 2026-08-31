@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 精确转换自 ui_design/assets/recording_file_list_context_menu/context_menu_rename_icon.svg -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:viewportWidth="20"
+    android:viewportHeight="20">
+
+    <group
+        android:translateX="3.33333"
+        android:translateY="4.58333">
+        <path
+            android:fillColor="?attr/recorderColorPrimaryIcon"
+            android:fillType="evenOdd"
+            android:pathData="M-0.75,9.1667L-0.75,12.0833Q-0.759,12.3977 -0.5303,12.6137Q-0.3144,12.8424 0,12.8333L2.9167,12.8333Q3.066,12.8339 3.2037,12.7762Q3.3418,12.7196 3.447,12.6137L12.6137,3.447Q12.8424,3.2311 12.8333,2.9167Q12.8424,2.6023 12.6137,2.3863L9.697,-0.5303Q9.4811,-0.759 9.1667,-0.75Q8.8523,-0.759 8.6363,-0.5303L-0.5303,8.6363Q-0.6363,8.7415 -0.6929,8.8797Q-0.7506,9.0174 -0.75,9.1667ZM0.75,11.3333L2.606,11.3333L11.0227,2.9167L9.1667,1.0607L0.75,9.4773L0.75,11.3333Z" />
+    </group>
+
+    <group
+        android:translateX="11.25"
+        android:translateY="5.83333">
+        <path
+            android:fillColor="?attr/recorderColorPrimaryIcon"
+            android:fillType="evenOdd"
+            android:pathData="M3.447,2.3863L0.5303,-0.5303Q0.3144,-0.759 0,-0.75Q-0.3144,-0.759 -0.5303,-0.5303Q-0.759,-0.3144 -0.75,0Q-0.759,0.3144 -0.5303,0.5303L2.3863,3.447Q2.6023,3.6757 2.9167,3.6667Q3.2311,3.6757 3.447,3.447Q3.6757,3.2311 3.6667,2.9167Q3.6757,2.6023 3.447,2.3863Z" />
+    </group>
+</vector>

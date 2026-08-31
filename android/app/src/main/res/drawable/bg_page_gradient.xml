@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 页面背景：设计稿顶部渐变衬片（375×300，对应 Theme Token 不透明度 16% → 0%）叠加页面底色 对应 Theme Token。
+     用于主页壳/绑定设备/设备信息页；渐变从屏幕顶端（含状态栏区域）开始。 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="?attr/recorderColorPageBackground" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top"
+        android:height="300dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:endColor="?attr/recorderColorPageGradientEnd"
+                android:startColor="?attr/recorderColorPageGradientStart"
+                android:type="linear" />
+        </shape>
+    </item>
+</layer-list>
