@@ -1,0 +1,4 @@
+dependencies:
+  espressif/button: "^4.1.6"
+  espressif/cjson: "^1.7.19"
+  jason-mao/av_processor: "^0.7.0"

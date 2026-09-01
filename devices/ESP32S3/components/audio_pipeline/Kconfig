@@ -1,0 +1,11 @@
+menu "Audio Pipeline"
+
+    config AUDIO_PIPELINE_ENABLE_AFE
+        bool "Enable Audio Front End (AFE)"
+        default n
+        help
+            Enable the esp-sr Audio Front End before Opus encoding.
+            When disabled, microphone PCM bypasses AFE and is encoded directly.
+            When enabled, the existing VC and HIGH_PERF AFE configuration is used.
+
+endmenu

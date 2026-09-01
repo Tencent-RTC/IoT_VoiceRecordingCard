@@ -1,0 +1,22 @@
+menu "Board Selection"
+    choice BOARD_TYPE
+        prompt "Select target board"
+        default BOARD_STICK_S3
+        help
+            Choose between M5Stack StickS3 (original) and 立创实战派 ESP32-S3.
+
+    config BOARD_STICK_S3
+        bool "M5Stack StickS3"
+        select BOARD_HAS_SECONDARY_BUTTON
+        select BOARD_HAS_DEEP_SLEEP
+
+    config BOARD_LICHUANG
+        bool "立创实战派 ESP32-S3"
+    endchoice
+
+    config BOARD_HAS_SECONDARY_BUTTON
+        bool
+
+    config BOARD_HAS_DEEP_SLEEP
+        bool
+endmenu
